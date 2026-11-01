@@ -79,4 +79,30 @@ Do not commit API keys, OAuth tokens, email bodies, user databases, logs, export
 🚧 **Active development / Work in Progress.** The goal is a reliable autonomous email agent that organizes messages without routine user decisions while keeping irreversible mail actions behind explicit permissions.
 
 ---
-Built as a hands-on software engineering project.
+Built as a hands-on software engineering project.## Real application screenshots
+
+All images below are real captures from the Postmark application, with sender details redacted where necessary. They are not mockups or AI-generated screenshots.
+
+### 1. Live inbox and autonomous organization
+
+![Postmark live inbox and AI progress](assets/inbox-live.png)
+
+### 2. Navigation and organized categories
+
+![Postmark navigation with local categories](assets/navigation.png)
+
+### 3. AI engine and model routing
+
+![Postmark AI engine and configured routes](assets/ai-engine.png)
+
+### 4. Cleanup workflow
+
+![Postmark cleanup and review](assets/cleanup.png)
+
+### 5. Subscription management
+
+![Postmark subscription management](assets/subscriptions.png)
+
+### 6. Background sync and history
+
+![Postmark sync and history](assets/sync-history.png)
