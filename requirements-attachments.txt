@@ -1,0 +1,2 @@
+# Optional local PDF text reader; no external upload or OCR service.
+pypdf==6.21.4

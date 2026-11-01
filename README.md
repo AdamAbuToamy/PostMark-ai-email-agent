@@ -55,7 +55,9 @@ FastAPI -> React dashboard
 
 ## Real application screenshots
 
-Screenshots of the running application were captured for the project showcase. The public screenshots are being reviewed for personal email and sender information before inclusion here. **No synthetic product screenshots or mockups are presented as real output.**
+The image below is the actual React application running against a fresh, isolated empty database. It contains no connected mailbox, private messages or model credentials; it is not evidence of live cloud inference. No AI-generated mockup was used.
+
+![Real Postmark AI Activity screen with an empty local instance](docs/screenshots/empty-activity.png)
 
 ## Engineering work
 
@@ -70,9 +72,22 @@ Postmark has involved solving real issues such as SQLite locking, long-running t
 
 ## Security & privacy
 
-This public repository currently contains **project documentation only**. It is **not** a release of the local application source code.
+This repository now contains the reviewed application source, synthetic tests and configuration templates. Live credentials, mailbox data, local runtime history and production screenshots are excluded. Source publication does not make the application production-hardened.
 
-Do not commit API keys, OAuth tokens, email bodies, user databases, logs, exported credentials, or screenshots containing private messages. Future source publication requires a code-and-history secret review and a separate verification of safe sample configuration.
+Do not commit API keys, OAuth tokens, email bodies, user databases, logs, exported credentials, or screenshots containing private messages. The release tree and its separate publication history were scanned before publication. See [Setup](docs/SETUP.md) and [Publication verification](docs/PUBLICATION.md).
+
+## Run locally
+
+See [installation and account setup](docs/SETUP.md). The server is loopback-only; do not expose it directly to the LAN or Internet. A fresh installation contains no account tokens, provider keys, qualified-model evidence or production permissions.
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+npm ci --prefix frontend
+npm run build --prefix frontend
+cp .env.example .env
+PYTHONPATH=src .venv/bin/uvicorn email_agent.api.app:app --host 127.0.0.1 --port 8000 --env-file .env
+```
 
 ## Development status
 

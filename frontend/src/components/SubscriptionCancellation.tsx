@@ -1,0 +1,40 @@
+import {MarkUnsubscribed} from './MarkUnsubscribed'
+import {useState} from 'react'
+import type {ActionPreview} from '../api/actions'
+import {postLocal} from '../api/actions'
+import {readLocal} from '../api/mailboxes'
+import {ManualUnsubscribeButton} from './ManualUnsubscribeButton'
+
+type Cancellation=ActionPreview&{
+ payload:ActionPreview['payload']&{subscription_id?:string;display_name?:string;sender?:string;destination_domain?:string;recipient_email?:string;allow_all?:boolean;scope?:string;approved_topic_labels?:string[]}
+ result?:ActionPreview['result']&{state?:string;reason?:string;submitted?:boolean;submission_attempted?:boolean;inspect_only?:boolean;proposed_destination?:string;manual_handoff?:boolean;page_state?:{fields:{id:string;type:string;purpose?:string;label:string;disabled:boolean}[]}}
+ flow?:{kind:string;title:string}
+}
+export function SubscriptionCancellation({action,onChanged,onClose}:{action:ActionPreview;onChanged:()=>void;onClose:()=>void}){
+ const [value,setValue]=useState(action as Cancellation),[busy,setBusy]=useState(false),[error,setError]=useState(''),[audit,setAudit]=useState<unknown>(null)
+ const [all,setAll]=useState(false),[topics,setTopics]=useState<string[]>([]),[external,setExternal]=useState(false),[manual,setManual]=useState(false)
+ const item=value.payload.items[0],oneClick=value.kind==='unsubscribe:one_click'
+ const host=value.payload.destination_domain??item?.host
+ const id=value.payload.subscription_id??item?.subscription_id
+ const result=value.result,reason=result?.reason
+ const kind=value.flow?.kind??(value.status==='pending'?'approve':result?.state==='cancelled'?'unsubscribed':result?.state==='requested'||oneClick&&value.status==='succeeded'?'pending':reason==='login_captcha_or_mfa'?'challenge':result?.inspect_only&&result?.submitted?'pending':reason==='recipient_consent_required'&&!result?.inspect_only?'email':reason==='destination_changed'?'destination':['all_scope_requires_approval','preference_choice_required'].includes(reason??'')&&!result?.inspect_only?'scope':result?.submitted?'pending':'manual')
+ const title=value.flow?.title??({approve:'Unsubscribe',unsubscribed:'Unsubscribed',pending:'Request sent — confirmation pending',email:'Needs your help — Open browser',scope:'Needs your help — Open browser',destination:'Needs your help — Open browser',challenge:'Needs your help — Open browser',manual:'Unable to unsubscribe — Open page manually'}[kind])
+ async function perform(work:()=>Promise<Cancellation>){setBusy(true);setError('');try{setValue(await work());setTopics([]);setAll(false);onChanged()}catch(e){setError(e instanceof Error?e.message:'Unable to unsubscribe')}finally{setBusy(false)}}
+ async function dismiss(){setBusy(true);try{await postLocal(`/api/subscriptions/${value.account_id}/browser/${value.id}/dismiss-flow`,{approved:true})}catch{/* The dismiss action never repeats a website request. */}finally{setBusy(false);onClose()}}
+ async function confirm(){await perform(()=>postLocal<Cancellation>(oneClick?`/api/subscriptions/${value.account_id}/actions/${value.id}/confirm`:`/api/subscriptions/${value.account_id}/browser/${value.id}/confirm-flow`,oneClick?{approved:true,approved_targets:[id],approved_third_party_targets:item?.requires_third_party_ack?[id]:[]}:{approved:true}))}
+ async function continueScope(destination=false){await perform(()=>postLocal<Cancellation>(`/api/subscriptions/${value.account_id}/browser/${value.id}/continue-flow`,{approved:true,allow_all:all,topic_ids:topics,change_destination:destination}))}
+ async function address(){await perform(()=>postLocal<Cancellation>(`/api/subscriptions/${value.account_id}/browser/${value.id}/resume-preview`,{submit_recipient:true}))}
+ return <section className="v5-action-preview v5-unsubscribe-result" aria-label="Unsubscribe"><button className="v5-unsubscribe-dismiss" aria-label="Dismiss unsubscribe" disabled={busy} onClick={()=>void dismiss()}>×</button><h3>{busy?'Unsubscribing…':title}</h3><p><strong>{value.payload.display_name??item?.display_name??item?.subject}</strong></p><p>{value.payload.sender??item?.sender} · {value.account_id==='personal'?'Personal Gmail':'University Gmail'}</p>
+ {kind==='approve'&&<><p>Cancel this mailing list and complete its ordinary confirmation steps.</p>{host&&<p>Website: {host}</p>}{value.payload.recipient_email&&<p>Allow {value.payload.recipient_email} to be submitted to {value.payload.destination_domain} for this unsubscribe request?</p>}{value.payload.allow_all&&<p>This includes all marketing topics shown for this sender.</p>}{value.payload.approved_topic_labels?.map(label=><p key={label}>Stop receiving: {label}</p>)}{item?.requires_third_party_ack&&<label className="v5-confirm-check"><input type="checkbox" checked={external} onChange={e=>setExternal(e.target.checked)}/>Allow the external email provider {item?.proof?.signer??host} for this cancellation.</label>}<button className="v5-small-button primary" disabled={busy||!!item?.requires_third_party_ack&&!external} onClick={()=>void confirm()}>{value.payload.recipient_email?'Allow email and continue':'Unsubscribe'}</button></>}
+ {kind==='email'&&<><p>The sender needs your email address. Review your account address before allowing it to be sent.</p><button className="v5-small-button primary" disabled={busy} onClick={()=>void address()}>Review my email address</button></>}
+ {kind==='scope'&&<><p>Choose what to stop receiving. Other topics stay unchanged.</p>{result?.page_state?.fields.filter(field=>field.type==='checkbox'&&field.purpose==='topic'&&!field.disabled).map(field=><label className="v5-confirm-check" key={field.id}><input type="checkbox" checked={topics.includes(field.id)} onChange={e=>setTopics(old=>e.target.checked?[...old,field.id]:old.filter(id=>id!==field.id))}/>Stop receiving: {field.label}</label>)}<label className="v5-confirm-check"><input type="checkbox" checked={all} onChange={e=>setAll(e.target.checked)}/>Unsubscribe from all this sender’s marketing topics instead</label><button className="v5-small-button primary" disabled={busy||!all&&!topics.length} onClick={()=>void continueScope()}>{all?'Unsubscribe from all topics':'Unsubscribe from selected topics'}</button></>}
+ {kind==='destination'&&<><p>The sender’s process moved to {result?.proposed_destination?new URL(result.proposed_destination).hostname:'a different website'}. Allow this destination?</p><button className="v5-small-button primary" disabled={busy} onClick={()=>void continueScope(true)}>Allow new destination</button></>}
+ {kind==='unsubscribed'&&<p>Unsubscribed. Confirmation received from the website.</p>}
+ {kind==='pending'&&<p>Request sent. Awaiting confirmation.</p>}
+ {(kind==='manual'||kind==='challenge')&&<p>{result?.submission_attempted&&!result?.submitted?'We could not verify whether the website received the request. Check its status before submitting again.':'Complete this on the sender’s website.'}</p>}
+ {id&&['manual','challenge','pending'].includes(kind)&&!['unsafe_destination','unsafe_navigation','scope_change_or_unsupported','no_safe_method','manual_email'].includes(reason??'')&&<ManualUnsubscribeButton account={value.account_id} id={id} actionId={value.id} label="Open manually" primary={kind==='manual'||kind==='challenge'} onOpened={()=>setManual(true)}/>}
+ {['unsafe_destination','unsafe_navigation','scope_change_or_unsupported','no_safe_method'].includes(reason??'')&&<p>No safe unsubscribe page could be validated. Contact the sender directly.</p>}
+ {manual&&<p role="status">Finish manually in your browser. Postmark cannot resume that session.</p>}{id&&['manual','challenge','pending'].includes(kind)&&<MarkUnsubscribed account={value.account_id} id={id} onChanged={()=>{onChanged();onClose()}}/>}
+ {error&&<p role="alert">{error}</p>}
+ <details className="v5-technical-details" onToggle={event=>{if(event.currentTarget.open)void readLocal(`/api/actions/${value.account_id}/${value.id}/audit`).then(setAudit).catch(()=>setAudit('Audit unavailable'))}}><summary>Technical Details</summary><pre>{JSON.stringify({action:value,audit},null,2)}</pre></details></section>
+}

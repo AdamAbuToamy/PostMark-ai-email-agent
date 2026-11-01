@@ -1,0 +1,9 @@
+{
+  "source": "https://www.siliconflow.cn/pricing",
+  "verified_at": "2026-10-31T18:00:00Z",
+  "expires_at": "2026-11-07T18:00:00Z",
+  "models": {
+    "Qwen/Qwen3-8B": {"input_price": "0", "output_price": "0", "context": 131072, "priority": 2, "open_weights": true, "license": "Apache-2.0", "license_source": "https://huggingface.co/Qwen/Qwen3-8B/blob/main/LICENSE", "output_mode": "json_object", "disable_thinking": true},
+    "XingChenAGI/Xing4.0-29B": {"input_price": "0", "output_price": "0", "context": 262144, "priority": 1, "open_weights": null, "license": "Hosted alias mapping not verified; upstream Xing4.0-29B-A4B is Apache-2.0", "license_source": "https://github.com/XingChen-AGI/Xing4.0-29B-A4B/blob/main/LICENSE", "output_mode": "json_object", "disable_thinking": false}
+  }
+}

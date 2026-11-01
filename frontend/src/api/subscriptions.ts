@@ -1,0 +1,6 @@
+export interface SubscriptionTracking { state:'active'|'in_progress'|'submitted'|'unsubscribed'|'uncertain'|'failed'|'manual_completed'; label:string; later_message:boolean; completed_at?:string; updated_at?:string; method?:string; evidence?:string; action_id?:string }
+export interface Subscription { tracking?:SubscriptionTracking; id:string; display_status?:string; manual_state?:{status:string;note:string}; identity:string; display_name:string; kind:'mailing_list'|'header_offer'|'promotional_sender'; one_click_candidate:boolean; verification:string; requires_third_party_ack?:boolean; automatic_available:boolean; observed_count:number; message_ids:string[]; methods:string[]; manual_destinations:string[]; reason:string; state:string; request_state?:{status:string;action_id:string} }
+export interface DiscoveryProgress { total:number; indexed:number; missing:number; ready:number; failed:number; skipped:number; exhausted:number; running:boolean; complete:boolean; page_size:number; coverage_limit:number }
+export interface SubscriptionsData { items:Subscription[]; coverage:string; progress:DiscoveryProgress }
+
+export interface ManualMethod {kind:'https'|'mailto';url?:string;address?:string;subject?:string;body?:string;instructions:string;display_name:string}

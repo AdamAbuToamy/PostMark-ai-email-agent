@@ -1,0 +1,4 @@
+# Optional free security dependency for independently verified RFC 8058 requests.
+# Without it, eligibility checks fail closed and manual instructions remain available.
+dkimpy==1.1.8
+dnspython==2.9.0

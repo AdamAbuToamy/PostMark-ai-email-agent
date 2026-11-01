@@ -1,0 +1,11 @@
+[Unit]
+Description=Continue Postmark mailbox organization continuously in bounded batches
+
+[Timer]
+OnBootSec=60
+OnUnitInactiveSec=30
+Persistent=true
+Unit=email-agent-organizer.service
+
+[Install]
+WantedBy=timers.target

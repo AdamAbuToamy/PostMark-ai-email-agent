@@ -22,6 +22,6 @@
 ## Not yet released
 - Public installation package
 - Verified production-safe multi-user deployment
-- Public source code after full secret/history audit
+- Repeatable installation packaging beyond the reviewed source checkout
 
 Roadmap items indicate active engineering goals, not guaranteed shipped functionality.

@@ -1,0 +1,1469 @@
+{
+  "version": "gold-v3-semantic-family-54",
+  "label_origin": "Curated synthetic annotations, never derived from provider predictions; user rubric/gold review required before live qualification.",
+  "human_review_required": true,
+  "cases": [
+    {
+      "id": "academic-ar",
+      "language": "ar",
+      "subject": "تحديث محاضرة",
+      "body": "ستعقد المحاضرة القادمة لمقرر الرياضيات يوم الثلاثاء الساعة العاشرة في القاعة 4. مذكرات القراءة متاحة.",
+      "gold": {
+        "categories": [
+          "university"
+        ],
+        "document_type": "academic_notice",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "ack-ar",
+      "language": "ar",
+      "subject": "استلمنا طلب التوظيف",
+      "body": "شكرًا لتقديمك إلى وظيفة مهندس. استلمنا طلبك وسنراجعه. هذه ليست موافقة على توظيفك.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "application_acknowledgment",
+        "workflow": "applied",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "conversation-ar",
+      "language": "ar",
+      "subject": "عشاء يوم الجمعة؟",
+      "body": "مرحبًا، هل ترغب بلقاء على العشاء يوم الجمعة؟ يمكنني إحضار الحلوى. أخبرني بالوقت المناسب لك.",
+      "gold": {
+        "categories": [
+          "correspondence"
+        ],
+        "document_type": "correspondence",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "interview-ar",
+      "language": "ar",
+      "subject": "دعوة مقابلة",
+      "body": "بخصوص طلب التوظيف الذي قدمته لوظيفة محلل، ندعوك إلى مقابلة يوم الاثنين.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "interview_invitation",
+        "workflow": "interview",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "invoice-ar",
+      "language": "ar",
+      "subject": "فاتورة غير مدفوعة",
+      "body": "فاتورة رقم 42. يجب دفع 100 دولار يوم الجمعة. لم يتم سداد هذه الفاتورة.",
+      "gold": {
+        "categories": [
+          "bills"
+        ],
+        "document_type": "invoice",
+        "workflow": null,
+        "payment": "payment_due",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "marketing-ar",
+      "language": "ar",
+      "subject": "نشرة عروض شهرية",
+      "body": "نشرتنا الشهرية للتسوق: وفر 30 بالمئة على منتجات جديدة هذا الأسبوع. تسوق الآن. هذا إعلان وليس فاتورة.",
+      "gold": {
+        "categories": [
+          "promotions"
+        ],
+        "document_type": null,
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "promotional",
+        "entity": null
+      }
+    },
+    {
+      "id": "offer-ar",
+      "language": "ar",
+      "subject": "عرض عمل",
+      "body": "بعد طلب التوظيف الذي قدمته والمقابلة لوظيفة مهندس، يسرنا أن نقدم لك الوظيفة. خطاب عرض العمل مرفق.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "job_offer",
+        "workflow": "offer",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "order-ar",
+      "language": "ar",
+      "subject": "تم تسليم الطلب",
+      "body": "تم تسليم طلبك اليوم إلى عنوانك. هذه رسالة تسليم، وليست فاتورة.",
+      "gold": {
+        "categories": [
+          "orders"
+        ],
+        "document_type": "delivery_notice",
+        "workflow": "delivered",
+        "payment": null,
+        "sensitivity": "transactional",
+        "entity": null
+      }
+    },
+    {
+      "id": "payment-ar",
+      "language": "ar",
+      "subject": "تأكيد استلام الدفع",
+      "body": "استلمنا دفعتك البالغة 12.50 يورو لتسوية الحساب. لا توجد مبالغ أخرى مستحقة.",
+      "gold": {
+        "categories": [
+          "bills"
+        ],
+        "document_type": "payment_notice",
+        "workflow": null,
+        "payment": "paid",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "pickup-ar",
+      "language": "ar",
+      "subject": "الطرد جاهز للاستلام",
+      "body": "طردك جاهز للاستلام من نقطة الاستلام. يرجى استلامه قبل الجمعة. لم يتم استلامه بعد.",
+      "gold": {
+        "categories": [
+          "orders"
+        ],
+        "document_type": "pickup_notice",
+        "workflow": "pickup",
+        "payment": null,
+        "sensitivity": "transactional",
+        "entity": null
+      }
+    },
+    {
+      "id": "quoted-ar",
+      "language": "ar",
+      "subject": "متابعة طلب التوظيف",
+      "body": "ما زلنا نراجع طلبك المقدم لوظيفة مهندس. لم يتم اتخاذ قرار توظيف.\n> مسؤول سابق: تم رفض طلبك.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": null,
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "forbidden_statuses": [
+          "rejected",
+          "offer",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "receipt-ar",
+      "language": "ar",
+      "subject": "إيصال شراء",
+      "body": "إيصال للطلب الذي اشتريته. تم دفع مبلغ 29.90 دولار. لا توجد دفعة مستحقة.",
+      "gold": {
+        "categories": [
+          "bills",
+          "orders"
+        ],
+        "document_type": "receipt",
+        "workflow": null,
+        "payment": "paid",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "refund-ar",
+      "language": "ar",
+      "subject": "تم إصدار استرداد",
+      "body": "تم إصدار استرداد بقيمة 40 دولار إلى وسيلة الدفع الأصلية للطلب الذي أعدته.",
+      "gold": {
+        "categories": [
+          "bills",
+          "orders"
+        ],
+        "document_type": "refund",
+        "workflow": null,
+        "payment": "refunded",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "rejection-ar",
+      "language": "ar",
+      "subject": "نتيجة طلب التوظيف",
+      "body": "شكرًا لتقديمك لوظيفة مهندس. بعد مراجعة طلبك المقدم، نأسف لإبلاغك بأننا لن نتابع إجراءات توظيفك.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "rejection",
+        "workflow": "rejected",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "security-ar",
+      "language": "ar",
+      "subject": "تنبيه أمني للجامعة",
+      "body": "رصدنا تسجيل دخول مريب إلى حسابك الجامعي. إن لم تكن أنت، غيّر كلمة المرور وأمّن الحساب.",
+      "gold": {
+        "categories": [
+          "security"
+        ],
+        "document_type": "security_notice",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "security",
+        "entity": null
+      }
+    },
+    {
+      "id": "research-ar-0",
+      "language": "ar",
+      "subject": "تقرير مسح النهر",
+      "body": "قاس مسحنا الميداني جودة مياه النهر في موقع العينات الشمالي. يتضمن التقرير ملاحظات الموائل.",
+      "cluster": "field_research-ar",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "research-ar-1",
+      "language": "ar",
+      "subject": "تقرير مسح النهر",
+      "body": "وثق المسح الميداني الثاني جودة مياه النهر في موقع العينات الجنوبي. يتضمن التقرير ملاحظات الموائل.",
+      "cluster": "field_research-ar",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "research-ar-2",
+      "language": "ar",
+      "subject": "تقرير مسح النهر",
+      "body": "قاس مسح ميداني مستقل جودة مياه النهر في موقع العينات الشرقي. يتضمن التقرير ملاحظات الموائل.",
+      "cluster": "field_research-ar",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "academic-en",
+      "language": "en",
+      "subject": "Lecture timetable",
+      "body": "The next lecture for your mathematics course is on Tuesday at 10am in room 4. Reading notes are available.",
+      "gold": {
+        "categories": [
+          "university"
+        ],
+        "document_type": "academic_notice",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "ack-en",
+      "language": "en",
+      "subject": "We received your application",
+      "body": "Thank you for applying for the engineer position. We received your application and will review it. This is not an employment offer.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "application_acknowledgment",
+        "workflow": "applied",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "conversation-en",
+      "language": "en",
+      "subject": "Dinner on Friday?",
+      "body": "Hi, would you like to meet for dinner on Friday? I can bring dessert. Let me know what time works for you.",
+      "gold": {
+        "categories": [
+          "correspondence"
+        ],
+        "document_type": "correspondence",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "interview-en",
+      "language": "en",
+      "subject": "Interview invitation",
+      "body": "Regarding your submitted application for the analyst position, we invite you to an interview on Monday.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "interview_invitation",
+        "workflow": "interview",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "invoice-en",
+      "language": "en",
+      "subject": "Invoice awaiting payment",
+      "body": "Invoice number 42. Payment of 100 USD is due Friday. This invoice has not been paid.",
+      "gold": {
+        "categories": [
+          "bills"
+        ],
+        "document_type": "invoice",
+        "workflow": null,
+        "payment": "payment_due",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "marketing-en",
+      "language": "en",
+      "subject": "Monthly shopping newsletter",
+      "body": "Our monthly shopping newsletter: save 30 percent on new products this week. Shop now. This is an advertisement, not an invoice.",
+      "gold": {
+        "categories": [
+          "promotions"
+        ],
+        "document_type": null,
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "promotional",
+        "entity": null
+      }
+    },
+    {
+      "id": "offer-en",
+      "language": "en",
+      "subject": "Employment offer",
+      "body": "Following your submitted application and interview for the engineer role, we are pleased to offer you the position. Your employment offer letter is attached.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "job_offer",
+        "workflow": "offer",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "order-en",
+      "language": "en",
+      "subject": "Order confirmation",
+      "body": "Your order has been confirmed. It has not shipped yet. This is an order confirmation, not a payment receipt.",
+      "gold": {
+        "categories": [
+          "orders"
+        ],
+        "document_type": "order_confirmation",
+        "workflow": "confirmed",
+        "payment": null,
+        "sensitivity": "transactional",
+        "entity": null
+      }
+    },
+    {
+      "id": "payment-en",
+      "language": "en",
+      "subject": "Payment received",
+      "body": "We received your payment of 12.50 EUR for the account balance. No further payment is due.",
+      "gold": {
+        "categories": [
+          "bills"
+        ],
+        "document_type": "payment_notice",
+        "workflow": null,
+        "payment": "paid",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "pickup-en",
+      "language": "en",
+      "subject": "Ready for pickup",
+      "body": "Your parcel is ready for collection at the pickup point. Please collect it before Friday. It has not been collected.",
+      "gold": {
+        "categories": [
+          "orders"
+        ],
+        "document_type": "pickup_notice",
+        "workflow": "pickup",
+        "payment": null,
+        "sensitivity": "transactional",
+        "entity": null
+      }
+    },
+    {
+      "id": "quoted-en",
+      "language": "en",
+      "subject": "Application update",
+      "body": "We are still reviewing your submitted application for the engineer position. No hiring decision has been made.\n> Previous recruiter: Your application was rejected.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": null,
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "forbidden_statuses": [
+          "rejected",
+          "offer",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "receipt-en",
+      "language": "en",
+      "subject": "Purchase receipt",
+      "body": "Receipt for your completed purchase. Total paid: 29.90 USD. This is not a payment request.",
+      "gold": {
+        "categories": [
+          "bills",
+          "orders"
+        ],
+        "document_type": "receipt",
+        "workflow": null,
+        "payment": "paid",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "refund-en",
+      "language": "en",
+      "subject": "Refund issued",
+      "body": "A refund of 40 USD has been issued to your original payment method for your returned purchase.",
+      "gold": {
+        "categories": [
+          "bills",
+          "orders"
+        ],
+        "document_type": "refund",
+        "workflow": null,
+        "payment": "refunded",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "rejection-en",
+      "language": "en",
+      "subject": "Application outcome",
+      "body": "Thank you for applying for the engineer position. After reviewing your submitted application, we will not proceed with your candidacy.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "rejection",
+        "workflow": "rejected",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "security-en",
+      "language": "en",
+      "subject": "Password changed",
+      "body": "Your university account password was changed successfully. If this was not you, secure your account immediately.",
+      "gold": {
+        "categories": [
+          "security"
+        ],
+        "document_type": "security_notice",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "security",
+        "entity": null
+      }
+    },
+    {
+      "id": "research-en-0",
+      "language": "en",
+      "subject": "River field report",
+      "body": "Our field survey measured river water quality at the north sampling site. Habitat observations are included.",
+      "cluster": "field_research-en",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "research-en-1",
+      "language": "en",
+      "subject": "River field report",
+      "body": "The second field survey recorded river water quality at the south sampling site. Habitat observations are included.",
+      "cluster": "field_research-en",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "research-en-2",
+      "language": "en",
+      "subject": "River field report",
+      "body": "Our independent river field survey measured water quality at the east sampling site. Habitat observations are included.",
+      "cluster": "field_research-en",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "academic-he",
+      "language": "he",
+      "subject": "עדכון הרצאה",
+      "body": "ההרצאה הבאה בקורס מתמטיקה תתקיים ביום שלישי בשעה עשר בחדר 4. סיכומי הקריאה זמינים.",
+      "gold": {
+        "categories": [
+          "university"
+        ],
+        "document_type": "academic_notice",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "ack-he",
+      "language": "he",
+      "subject": "קיבלנו את מועמדותך",
+      "body": "תודה שהגשת מועמדות למשרת מהנדס. קיבלנו את הבקשה שלך ונבדוק אותה. זו אינה הצעת עבודה.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "application_acknowledgment",
+        "workflow": "applied",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "conversation-he",
+      "language": "he",
+      "subject": "ניפגש לארוחת ערב?",
+      "body": "היי, רוצה להיפגש לארוחת ערב ביום שישי? אוכל להביא קינוח. תגיד לי איזו שעה נוחה לך.",
+      "gold": {
+        "categories": [
+          "correspondence"
+        ],
+        "document_type": "correspondence",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "interview-he",
+      "language": "he",
+      "subject": "הזמנה לראיון",
+      "body": "בהמשך למועמדות שהגשת למשרת אנליסט, נשמח להזמין אותך לראיון ביום שני.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "interview_invitation",
+        "workflow": "interview",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "invoice-he",
+      "language": "he",
+      "subject": "חשבונית לתשלום",
+      "body": "חשבונית מספר 42. יש לשלם 100 דולר עד יום שישי. החשבונית טרם שולמה.",
+      "gold": {
+        "categories": [
+          "bills"
+        ],
+        "document_type": "invoice",
+        "workflow": null,
+        "payment": "payment_due",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "marketing-he",
+      "language": "he",
+      "subject": "מבצע לקונים",
+      "body": "השבוע הנחה של 30 אחוז על מוצרים חדשים. קנו עכשיו. זו פרסומת ולא חשבונית.",
+      "gold": {
+        "categories": [
+          "promotions"
+        ],
+        "document_type": null,
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "promotional",
+        "entity": null
+      }
+    },
+    {
+      "id": "offer-he",
+      "language": "he",
+      "subject": "הצעת עבודה",
+      "body": "בהמשך למועמדות שהגשת ולראיון למשרת מהנדס, אנו שמחים להציע לך את המשרה. מצורף מכתב הצעת עבודה.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "job_offer",
+        "workflow": "offer",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "order-he",
+      "language": "he",
+      "subject": "ההזמנה נשלחה",
+      "body": "החבילה שלך נשלחה ונמצאת בדרך. היא עדיין לא נמסרה. פרטי המעקב מצורפים.",
+      "gold": {
+        "categories": [
+          "orders"
+        ],
+        "document_type": "shipment_notice",
+        "workflow": "shipped",
+        "payment": null,
+        "sensitivity": "transactional",
+        "entity": null
+      }
+    },
+    {
+      "id": "payment-he",
+      "language": "he",
+      "subject": "אישור קבלת תשלום",
+      "body": "קיבלנו את התשלום שלך בסך 12.50 אירו עבור יתרת החשבון. אין יתרה לתשלום.",
+      "gold": {
+        "categories": [
+          "bills"
+        ],
+        "document_type": "payment_notice",
+        "workflow": null,
+        "payment": "paid",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "pickup-he",
+      "language": "he",
+      "subject": "החבילה ממתינה לאיסוף",
+      "body": "החבילה שלך מוכנה לאיסוף בנקודת האיסוף. נא להגיע לפני יום שישי. היא טרם נאספה.",
+      "gold": {
+        "categories": [
+          "orders"
+        ],
+        "document_type": "pickup_notice",
+        "workflow": "pickup",
+        "payment": null,
+        "sensitivity": "transactional",
+        "entity": null
+      }
+    },
+    {
+      "id": "quoted-he",
+      "language": "he",
+      "subject": "עדכון בקשת עבודה",
+      "body": "אנחנו עדיין בודקים את הבקשה שהגשת למשרת מהנדס. טרם התקבלה החלטה.\n> מגייס קודם: מועמדותך נדחתה.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": null,
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "forbidden_statuses": [
+          "rejected",
+          "offer",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "receipt-he",
+      "language": "he",
+      "subject": "קבלה עבור ההזמנה",
+      "body": "קבלה עבור רכישה שבוצעה. סכום ששולם: 29.90 דולר. אין צורך לשלם שוב.",
+      "gold": {
+        "categories": [
+          "bills",
+          "orders"
+        ],
+        "document_type": "receipt",
+        "workflow": null,
+        "payment": "paid",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "refund-he",
+      "language": "he",
+      "subject": "החזר בוצע",
+      "body": "בוצע החזר בסך 40 דולר לאמצעי התשלום המקורי עבור הרכישה שהחזרת.",
+      "gold": {
+        "categories": [
+          "bills",
+          "orders"
+        ],
+        "document_type": "refund",
+        "workflow": null,
+        "payment": "refunded",
+        "sensitivity": "financial",
+        "entity": null
+      }
+    },
+    {
+      "id": "rejection-he",
+      "language": "he",
+      "subject": "עדכון לגבי מועמדותך",
+      "body": "תודה שהגשת מועמדות למשרת מהנדס. לאחר בדיקת הבקשה שהגשת, לצערנו לא נוכל להתקדם עם מועמדותך.",
+      "gold": {
+        "categories": [
+          "job_applications"
+        ],
+        "document_type": "rejection",
+        "workflow": "rejected",
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null
+      }
+    },
+    {
+      "id": "security-he",
+      "language": "he",
+      "subject": "קוד אימות לחשבון",
+      "body": "קוד האימות לכניסה לחשבון האוניברסיטה הוא 842719. אם לא ביקשת כניסה, יש לאבטח את החשבון.",
+      "gold": {
+        "categories": [
+          "security"
+        ],
+        "document_type": "security_notice",
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "security",
+        "entity": null
+      }
+    },
+    {
+      "id": "research-he-0",
+      "language": "he",
+      "subject": "דוח סקר נחל",
+      "body": "סקר השטח שלנו מדד איכות מים בנחל בנקודת הדגימה הצפונית. מצורפות תצפיות על בתי גידול.",
+      "cluster": "field_research-he",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "research-he-1",
+      "language": "he",
+      "subject": "דוח סקר נחל",
+      "body": "סקר השטח השני תיעד את איכות מי הנחל בנקודת הדגימה הדרומית. מצורפות תצפיות על בתי גידול.",
+      "cluster": "field_research-he",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    },
+    {
+      "id": "research-he-2",
+      "language": "he",
+      "subject": "דוח סקר נחל",
+      "body": "סקר שטח עצמאי מדד את איכות המים בנחל בנקודת הדגימה המזרחית. מצורפות תצפיות על בתי גידול.",
+      "cluster": "field_research-he",
+      "gold": {
+        "categories": [
+          null
+        ],
+        "document_type": {
+          "match": "semantic_family",
+          "terms": [
+            "research",
+            "field",
+            "river",
+            "water",
+            "habitat",
+            "ecolog",
+            "environment",
+            "survey",
+            "מחקר",
+            "סקר",
+            "נחל",
+            "מים",
+            "סביב",
+            "גידול",
+            "بحث",
+            "ميدان",
+            "مسح",
+            "نهر",
+            "مياه",
+            "موائل",
+            "بيئ"
+          ],
+          "incompatible": [
+            "invoice",
+            "receipt",
+            "payment",
+            "refund",
+            "promotion",
+            "newsletter",
+            "application",
+            "rejection",
+            "offer",
+            "security",
+            "pickup",
+            "shipping"
+          ]
+        },
+        "workflow": null,
+        "payment": null,
+        "sensitivity": "personal",
+        "entity": null,
+        "requires_new_category": true,
+        "category_name_terms": [
+          "research",
+          "field",
+          "river",
+          "water",
+          "habitat",
+          "ecolog",
+          "environment",
+          "survey",
+          "מחקר",
+          "סקר",
+          "נחל",
+          "מים",
+          "סביב",
+          "גידול",
+          "بحث",
+          "ميدان",
+          "مسح",
+          "نهر",
+          "مياه",
+          "موائل",
+          "بيئ"
+        ]
+      }
+    }
+  ],
+  "semantic_rubric_approval": "User explicitly approved purpose/evidence/validated-creation evaluation on2026-10-30; protection, schema, hallucination and accuracy gates unchanged; no retroactive certification."
+}

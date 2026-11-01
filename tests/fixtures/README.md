@@ -1,0 +1,1 @@
+All fixtures in this directory are synthetic test messages. Public brand domains exercise provider/domain behavior; sender local parts are fictional. No inbox exports, real message IDs, credentials or saved model responses are included. Tests use temporary SQLite and mocked Gmail/model gateways.

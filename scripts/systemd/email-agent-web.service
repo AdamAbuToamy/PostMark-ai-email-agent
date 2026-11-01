@@ -1,0 +1,16 @@
+[Unit]
+Description=Postmark loopback web application
+After=network-online.target
+[Service]
+Type=simple
+User=postmark
+WorkingDirectory=/opt/postmark
+Environment=PYTHONPATH=/opt/postmark/src
+EnvironmentFile=-/opt/postmark/.env
+ExecStart=/opt/postmark/.venv/bin/python -m uvicorn email_agent.api.app:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+UMask=0077
+[Install]
+WantedBy=multi-user.target

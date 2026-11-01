@@ -1,0 +1,4 @@
+import type { DiscoveryProgress } from '../api/subscriptions'
+export function SubscriptionProgress({ progress }: { progress:DiscoveryProgress }) {
+  return <div className="v5-discovery-progress" role="status"><span>{progress.indexed} / {progress.total} local promotional messages indexed · {progress.missing} without metadata</span><progress aria-label="Metadata discovery progress" max={Math.max(1,progress.total)} value={progress.indexed}/><small>{progress.running?'Scan running · ':''}{progress.ready} ready for bounded discovery · {progress.failed} errors · {progress.skipped} protected messages skipped{progress.exhausted>0?` · ${progress.exhausted} reached the retry limit`:''}. Successful reads, including empty headers, are reused. Discovery does not imply historical completeness.</small></div>
+}

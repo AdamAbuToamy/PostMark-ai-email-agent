@@ -1,0 +1,48 @@
+# Credentials and private configuration
+.env
+.env.*
+!.env.example
+credentials*.json
+client_secret*.json
+token*.json
+tokens/
+*secrets*/
+*.pem
+*.key
+.aws/
+.codex/
+.agents/
+# Private mail, runtime state, exports and recovery files
+data/
+.runtime/
+backups/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.log
+*.trace
+*.har
+*.eml
+*.mbox
+*.zip
+*.tar.gz
+attachments/
+exports/
+# Build/development state
+.venv/
+__pycache__/
+*.py[cod]
+node_modules/
+dist/
+coverage/
+.pytest_cache/
+*.tsbuildinfo
+*.before*
+**/.ui-backup*/
+**/.design-backup*/
+*:Zone.Identifier
+# Locally captured screenshots need a separate privacy review
+desktop/windows/mini-preview.png

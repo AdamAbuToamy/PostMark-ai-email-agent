@@ -1,0 +1,25 @@
+[Unit]
+Description=Postmark private single-inference Ollama runtime
+After=network.target
+
+[Service]
+Type=simple
+User=postmark
+WorkingDirectory=/opt/postmark
+ExecStart=/opt/postmark/.runtime/ollama/bin/ollama serve
+Environment=OLLAMA_HOST=127.0.0.1:11434
+Environment=OLLAMA_MODELS=/opt/postmark/.runtime/ollama-models
+Environment=OLLAMA_NUM_PARALLEL=1
+Environment=OLLAMA_MAX_LOADED_MODELS=1
+Environment=OLLAMA_CONTEXT_LENGTH=16384
+Environment=OLLAMA_NO_CLOUD=1
+Restart=on-failure
+RestartSec=10
+NoNewPrivileges=true
+UMask=0077
+MemoryHigh=5G
+MemoryMax=6G
+MemorySwapMax=0
+
+[Install]
+WantedBy=multi-user.target

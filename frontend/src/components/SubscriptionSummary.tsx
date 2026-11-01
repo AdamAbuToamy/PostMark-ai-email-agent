@@ -1,0 +1,29 @@
+import { MarkUnsubscribed } from './MarkUnsubscribed'
+import { SubscriptionStatus } from './SubscriptionStatus'
+import { useConfirmation } from './ConfirmAction'
+import { useEffect, useState } from 'react'
+import type { AccountId } from '../api/emails'
+import type { SubscriptionsData } from '../api/subscriptions'
+import { readLocal } from '../api/mailboxes'
+import { postLocal, type ActionPreview } from '../api/actions'
+import { useRoute } from '../routing'
+import { SubscriptionCancellation } from './SubscriptionCancellation'
+import { ActionApproval } from './ActionApproval'
+import { SubscriptionManualActions } from './SubscriptionManualActions'
+import { SubscriptionProgress } from './SubscriptionProgress'
+import { ManualUnsubscribeButton } from './ManualUnsubscribeButton'
+export function SubscriptionSummary({ account, revision, onChanged }: { account:AccountId; revision:number; onChanged:()=>void }) {
+ const {confirm,dialog}=useConfirmation()
+  const {navigate}=useRoute()
+  const [data,setData]=useState<SubscriptionsData|null>(null)
+  const [error,setError]=useState('')
+  const [refresh,setRefresh]=useState(0)
+  const [busy,setBusy]=useState(false)
+  const [cancellation,setCancellation]=useState<ActionPreview|null>(null)
+  const [preview,setPreview]=useState<ActionPreview|null>(null)
+  useEffect(()=>{const controller=new AbortController();readLocal<SubscriptionsData>(`/api/subscriptions/${account}`,controller.signal).then(value=>{if(!controller.signal.aborted){setData(value);setError('')}}).catch(()=>{if(!controller.signal.aborted)setError('Subscription summary unavailable')});return()=>controller.abort()},[account,revision,refresh])
+  async function unsubscribe(id:string){setBusy(true);setError('');try{setCancellation(await (()=>{const saved=data?.items.find(item=>item.id===id)?.request_state;return saved?readLocal<ActionPreview>(`/api/actions/${account}/${saved.action_id}`):postLocal<ActionPreview>(`/api/subscriptions/${account}/cancellation`,{subscription_id:id})})())}catch(e){setError(e instanceof Error?e.message:'Unsubscribe unavailable')}finally{setBusy(false)}}
+  async function scan(){if(!(await confirm(`Read up to 20 missing promotional list headers for ${account}? No bodies, AI or Gmail changes.`)))return;setBusy(true);setError('');try{const result=await postLocal<{items:{status:string}[]}>(`/api/subscriptions/${account}/refresh`,{});setRefresh(value=>value+1);if(result.items.some(item=>item.status==='failed'))setError('Some metadata could not be read. Errors are saved for bounded retry.')}catch(err){setError(err instanceof Error?err.message:'Unable to read metadata')}finally{setBusy(false)}}
+  async function check(id:string){if(!(await confirm('Read one original message and independently verify DKIM? No unsubscribe request is sent until another explicit approval.')))return;setBusy(true);try{setPreview(await postLocal<ActionPreview>(`/api/subscriptions/${account}/preview`,{subscription_ids:[id]}));setRefresh(value=>value+1)}catch(err){setError(err instanceof Error?err.message:'Unable to check eligibility')}finally{setBusy(false)}}
+  return <aside className="v5-subscription-summary" aria-label="Subscription management">{dialog}<header><h3>Subscription management</h3><button className="v5-small-button" onClick={()=>navigate({page:'subscriptions',account})}>View all subscriptions</button></header>{data?<>{data.items.some(item=>['unsubscribed','manual_completed'].includes(item.tracking?.state??''))&&<a className="pm-subscription-done" href={`/subscriptions?account=${account}&status=unsubscribed`}>{data.items.filter(item=>['unsubscribed','manual_completed'].includes(item.tracking?.state??'')).length} unsubscribed</a>}<details className="v5-technical-details"><summary>Details</summary><SubscriptionProgress progress={data.progress}/><button className="v5-small-button" disabled={busy||data.progress.ready===0} onClick={()=>void scan()}>{busy?'Working…':'Read missing list headers'}</button><button className="v5-small-button" disabled={busy} onClick={()=>setRefresh(value=>value+1)}>Refresh status</button></details>{data.items.length?data.items.slice(0,3).map(group=><div className="v5-subscription-summary-row" key={group.id}><span><strong>{group.display_name}</strong><SubscriptionStatus item={group}/></span>{!['unsubscribed','manual_completed'].includes(group.tracking?.state??'')&&<><button className="v5-small-button primary" disabled={busy} onClick={()=>void unsubscribe(group.id)}>{group.tracking&&group.tracking.state!=='active'?'View status':'Unsubscribe'}</button><ManualUnsubscribeButton account={account} id={group.id} label="Open manually"/><MarkUnsubscribed account={account} id={group.id} onChanged={()=>{onChanged();setRefresh(v=>v+1)}}/></>}<details className="v5-technical-details"><summary>List details</summary>{group.one_click_candidate&&!group.request_state&&<details className="v5-technical-details"><summary>Advanced verification</summary><button className="v5-small-button" disabled={busy} onClick={()=>void check(group.id)}>Check eligibility…</button></details>}<details className="v5-technical-details"><summary>Other actions</summary><SubscriptionManualActions account={account} id={group.id} messageId={group.message_ids[0]} destinations={group.manual_destinations} onChanged={()=>{onChanged();setRefresh(value=>value+1)}}/></details></details></div>):<p>No active lists found in this view.</p>}</>:!error&&<p role="status">Loading observed groups…</p>}{cancellation&&<SubscriptionCancellation key={cancellation.id} action={cancellation} onChanged={()=>{onChanged();setRefresh(value=>value+1)}} onClose={()=>setCancellation(null)}/>} {preview&&<ActionApproval key={preview.id} preview={preview} onChanged={()=>{onChanged();setRefresh(value=>value+1)}} onClose={()=>setPreview(null)}/>} {error&&<p role="alert">{error}</p>}</aside>
+}

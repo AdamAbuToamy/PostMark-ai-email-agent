@@ -1,0 +1,243 @@
+[
+  {
+    "id": "receipt-en",
+    "subject": "Your order receipt",
+    "body": "Receipt. Total paid: 29.90 USD. Transaction ID: TX1234.",
+    "category": "bills",
+    "section": "receipts"
+  },
+  {
+    "id": "payment-body",
+    "subject": "Account update",
+    "body": "Payment received. Amount paid: 12.50 EUR. Transaction reference: AB1234.",
+    "category": "bills"
+  },
+  {
+    "id": "invoice-unpaid",
+    "subject": "Your invoice",
+    "body": "Invoice number 42. Total: $100. Payment due by Friday. This invoice is not paid.",
+    "category": "bills",
+    "section": "due"
+  },
+  {
+    "id": "receipt-he",
+    "subject": "קבלה על תשלום",
+    "body": "קבלה על תשלום. סכום ששולם: 50 ILS.",
+    "category": "bills",
+    "section": "receipts"
+  },
+  {
+    "id": "receipt-ar",
+    "subject": "إيصال دفع",
+    "body": "إيصال دفع. المبلغ المدفوع 40 USD.",
+    "category": "bills",
+    "section": "receipts"
+  },
+  {
+    "id": "refund",
+    "subject": "Refund confirmed",
+    "body": "Your refund has been issued. The amount will return to your original payment method.",
+    "category": "orders",
+    "section": "refunds"
+  },
+  {
+    "id": "invoice-ad",
+    "subject": "Save 30% on invoice software",
+    "body": "Start a free trial of our invoice management software. Shop now.",
+    "category": "promotions"
+  },
+  {
+    "id": "campus-security-en",
+    "subject": "Message for you",
+    "body": "Your password has been changed successfully.",
+    "category": "security"
+  },
+  {
+    "id": "campus-security-he",
+    "subject": "עדכון חשבון",
+    "body": "קיבלנו בקשה לשינוי סיסמה. הסיסמה שונתה בהצלחה.",
+    "category": "security"
+  },
+  {
+    "id": "campus-security-ar",
+    "subject": "إشعار الحساب",
+    "body": "تم تغيير كلمة المرور بنجاح.",
+    "category": "security"
+  },
+  {
+    "id": "auth-code",
+    "subject": "Your application",
+    "body": "To create your career account, use the passcode below to verify your identity. Passcode: 123456.",
+    "category": "security"
+  },
+  {
+    "id": "lecture",
+    "subject": "Message for you",
+    "body": "Your lecture schedule has changed. Course materials are available.",
+    "category": "university"
+  },
+  {
+    "id": "github-security",
+    "subject": "Security alert",
+    "body": "A new login was detected on your account.",
+    "sender": "postmark-synthetic-2@github.com",
+    "category": "security"
+  },
+  {
+    "id": "application-ack",
+    "subject": "Your application for the Developer role",
+    "body": "Thank you for applying. Your application has been received.",
+    "category": "job_applications",
+    "job": "applied"
+  },
+  {
+    "id": "application-review",
+    "subject": "Your application for the Developer role",
+    "body": "Thank you for your interest in our position. We're currently reviewing resumes with our hiring manager and will notify you once we have an update.",
+    "category": "job_applications",
+    "job": "applied"
+  },
+  {
+    "id": "rejected-en",
+    "subject": "Your application for the Engineer position",
+    "body": "We are not moving forward with your application.",
+    "category": "job_applications",
+    "job": "rejected"
+  },
+  {
+    "id": "rejected-he",
+    "subject": "עדכון למועמדותך למשרה",
+    "body": "לא נוכל להתקדם עם מועמדותך.",
+    "category": "job_applications",
+    "job": "rejected"
+  },
+  {
+    "id": "rejected-ar",
+    "subject": "تحديث طلبك للوظيفة",
+    "body": "تم رفض طلبك للوظيفة.",
+    "category": "job_applications",
+    "job": "rejected"
+  },
+  {
+    "id": "offer-en",
+    "subject": "Your application for the Engineer role",
+    "body": "We are pleased to offer you the position.",
+    "category": "job_applications",
+    "job": "offer"
+  },
+  {
+    "id": "offer-he",
+    "subject": "עדכון למועמדותך למשרה",
+    "body": "התקבלת לתפקיד המפתח.",
+    "category": "job_applications",
+    "job": "offer"
+  },
+  {
+    "id": "offer-ar",
+    "subject": "تحديث طلبك للوظيفة",
+    "body": "تم قبولك في الوظيفة.",
+    "category": "job_applications",
+    "job": "offer"
+  },
+  {
+    "id": "interview",
+    "subject": "Your application for the Engineer role",
+    "body": "We invite you to an interview with our team.",
+    "category": "job_applications",
+    "job": "interview"
+  },
+  {
+    "id": "no-offer",
+    "subject": "Your application for the Engineer role",
+    "body": "This is not an employment offer. No hiring decision has been made.",
+    "category": "job_applications",
+    "job": "unknown"
+  },
+  {
+    "id": "quoted-rejection",
+    "subject": "Your application for the Engineer role",
+    "body": "We will update you soon.\nOn Monday HR wrote:\nYour application was rejected.",
+    "category": "job_applications",
+    "job": "unknown"
+  },
+  {
+    "id": "conditional-submission",
+    "subject": "Your application for the Engineer role",
+    "body": "If you have completed the application, check its status. If you are still working on the application, complete it when ready.",
+    "category": "other",
+    "job": "unknown"
+  },
+  {
+    "id": "job-ad",
+    "subject": "Job alerts: apply now",
+    "body": "We are hiring. Recommended jobs for you.",
+    "category": "promotions",
+    "job": "unknown"
+  },
+  {
+    "id": "pickup",
+    "subject": "Delivery update",
+    "body": "Your parcel has been delivered to the collection point and is ready for pickup. Collect your parcel today.",
+    "category": "orders",
+    "section": "pickup"
+  },
+  {
+    "id": "pickup-ar",
+    "subject": "تحديث الشحنة",
+    "body": "تم شحن طلبك. الطرد جاهز للاستلام من نقطة الاستلام.",
+    "category": "orders",
+    "section": "pickup"
+  },
+  {
+    "id": "delivered",
+    "subject": "Your order has been delivered",
+    "body": "Your package has been delivered to your address.",
+    "category": "orders",
+    "section": "delivered"
+  },
+  {
+    "id": "unknown-unicode",
+    "subject": "こんにちは",
+    "body": "来週また連絡します。",
+    "category": "other"
+  },
+  {
+    "id": "rejection-context-variant",
+    "subject": "Your application for the Engineer position",
+    "body": "Thank you for your recent application. After reviewing your CV, we have decided to pursue other candidates whose qualifications match the position.",
+    "category": "job_applications",
+    "job": "rejected"
+  },
+  {
+    "id": "organizational-password-changed",
+    "subject": "Password change detected",
+    "body": "Your organizational password for username example was changed. If you did not initiate this change, contact support.",
+    "category": "security"
+  },
+  {
+    "id": "password-reminder",
+    "subject": "Account warning",
+    "body": "You haven't changed your account password for half a year. Please change your password as soon as possible.",
+    "category": "security"
+  },
+  {
+    "id": "hypothetical-order-refund",
+    "subject": "Your order: awaiting confirmation",
+    "body": "Your order will be marked as completed soon. If you still haven't received the package, apply for returns/refunds.",
+    "category": "orders",
+    "section": "processing"
+  },
+  {
+    "id": "exhausted-credit-not-a-receipt",
+    "subject": "Workspace is out of credits",
+    "body": "Your team has used up all its credits. You can purchase additional credits to restore access.",
+    "category": "other"
+  },
+  {
+    "id": "needs-semantic-japanese-receipt",
+    "subject": "Special offer",
+    "body": "ご購入ありがとうございます。領収書です。合計 ¥1,000。",
+    "category": "bills",
+    "requires_semantic": true
+  }
+]

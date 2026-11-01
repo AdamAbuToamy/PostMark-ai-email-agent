@@ -1,0 +1,63 @@
+{
+  "source": "https://ai.google.dev/gemini-api/docs/pricing",
+  "verified_at": "2026-10-30T22:00:00Z",
+  "expires_at": "2026-11-06T22:00:00Z",
+  "provider": "gemini",
+  "models": {
+    "gemini-3.8-flash": {
+      "task_priority": 10
+    },
+    "gemini-3.5-flash-lite": {
+      "task_priority": 1
+    },
+    "gemini-3.1-flash-lite": {
+      "task_priority": 0
+    }
+  },
+  "paid_only": [
+    "gemini-4-argon",
+    "gemini-3.1-pro-preview",
+    "gemini-3.1-pro-preview-customtools"
+  ],
+  "scope": "Standard text generateContent input and output only; no grounding, paid tier or built-in tools",
+  "evaluation_candidates": {
+    "zai": {
+      "source": "https://docs.z.ai/guides/overview/pricing",
+      "expires_at": "2026-11-07T00:00:00Z",
+      "models": {
+        "glm-4.7-flash": {
+          "task_priority": 2,
+          "input_usd_per_million": 0,
+          "output_usd_per_million": 0
+        },
+        "glm-4.5-flash": {
+          "task_priority": 1,
+          "input_usd_per_million": 0,
+          "output_usd_per_million": 0
+        }
+      }
+    },
+    "cloudflare": {
+      "source": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+      "expires_at": "2026-11-07T00:00:00Z",
+      "scope": "Candidate ordering only; requires actual catalog membership, verified Workers Free account and real quality qualification",
+      "models": {
+        "@cf/zai-org/glm-4.7-flash": {
+          "task_priority": 3,
+          "input_neurons_per_million": 5500,
+          "output_neurons_per_million": 36400
+        },
+        "@cf/google/gemma-4-26b-a4b-it": {
+          "task_priority": 2,
+          "input_neurons_per_million": 9091,
+          "output_neurons_per_million": 27273
+        },
+        "@cf/nvidia/nemotron-3-120b-a12b": {
+          "task_priority": 1,
+          "input_neurons_per_million": 45455,
+          "output_neurons_per_million": 136364
+        }
+      }
+    }
+  }
+}

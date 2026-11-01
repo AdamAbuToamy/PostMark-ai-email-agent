@@ -1,0 +1,2 @@
+# Reliable charset fallback for malformed MIME; already provided transitively by requests.
+charset-normalizer==3.5.2
